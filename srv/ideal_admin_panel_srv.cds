@@ -21,9 +21,13 @@ service ideal_admin_panel_srv {
     entity MasterIdealAttachments as projection on DEALER_PORTAL.MASTER_IDEAL_ATTACHMENTS;
     entity MasterStatus as projection on DEALER_PORTAL.MASTER_STATUS;
     entity MasterRequestType as projection on DEALER_PORTAL.MASTER_REQUEST_TYPE;
+     @restrict: [
+    { grant: '*', to:['ZIDEAL_SR_DM_ADMIN']}]
     entity MasterIdealUsers as projection on DEALER_PORTAL.MASTER_IDEAL_USERS;
     entity MasterUserEntityUsers as projection on DEALER_PORTAL.MASTER_USER_ENTITY_CODES;
     entity MasterUserRole as projection on DEALER_PORTAL.MASTER_USER_ROLE;
+     @restrict: [
+    { grant: '*', to:['ZIDEAL_SR_DM_ADMIN']}]
     entity IdealErrorLog as projection on DEALER_PORTAL.IDEAL_ERROR_LOG;
     entity RegformFolderIds as projection on DEALER_PORTAL.REGFORM_FOLDER_IDS;
     entity EmailConfig as projection on DEALER_PORTAL.EMAIL_CONFIG;

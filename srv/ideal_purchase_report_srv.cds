@@ -20,6 +20,8 @@ service ideal_purchase_report_srv {
     entity MasterSoStatus as projection on DEALER_PORTAL.MASTER_SO_STATUS;
     entity MasterPrEvent as projection on DEALER_PORTAL.MASTER_PR_EVENT;
     entity MasterPrStatus as projection on DEALER_PORTAL.MASTER_PR_STATUS;
+      @restrict: [
+    { grant: '*', to:['ZIDEAL_SR_DM_ADMIN']}]
     entity MasterIdealUsers as projection on DEALER_PORTAL.MASTER_IDEAL_USERS;
     entity UserMasterEntities as projection on USERMASTER_ENTITIES;
     entity MasterUserRole as projection on DEALER_PORTAL.MASTER_USER_ROLE;

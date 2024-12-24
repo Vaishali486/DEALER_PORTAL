@@ -70,7 +70,8 @@ PostToPR:async function(oSapPayload,conn) {
 		iStatusCode: 0
 	};
 		if (dataobj !== undefined || dataobj !== "" || dataobj !== null) {
-			var iDealDistConnection = await cds.connect.to('ZIBS_SALES_ORDER_CREATION_SRV');
+			// var iDealDistConnection = await cds.connect.to('ZIBS_SALES_ORDER_CREATION_SRV');
+			var iDealDistConnection = await cds.connect.to('ZIBS_SALES_ORDER_CREATION');
 			var sResponse = await iDealDistConnection.send({
 			  method: 'POST',
 			  path: "/SOHeaderSet",
@@ -87,7 +88,7 @@ PostToPR:async function(oSapPayload,conn) {
 		} 
         else {
 			resultData.oResponse = "Invalid Posting Object";
-			resultData.iStatusCode = 400;
+			resultData.iStatusCode = 400;	
 		}
 	return oResponseObj;
 }catch(error){throw error;}

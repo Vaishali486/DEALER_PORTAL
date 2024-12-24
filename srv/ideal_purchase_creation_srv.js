@@ -20,7 +20,7 @@ module.exports = cds.service.impl(function () {
         var{
             action,
             appType,
-            prHeader,
+            prHeader, 
             prCart,
             prItems,
             prEvent,
@@ -666,6 +666,7 @@ module.exports = cds.service.impl(function () {
 
             var sresponse = "Template inserted successfully";
             return sresponse;
+            
         
         }
         catch (error) {
@@ -734,7 +735,7 @@ module.exports = cds.service.impl(function () {
             data[i].PR_ITEM_NO = i + 1;
         }
         return data;
-    }      
+    }  
     async function getPrItemsData(data,sSapSoCode){
 
         var vSoItems = [];

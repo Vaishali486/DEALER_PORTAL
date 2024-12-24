@@ -16,4 +16,7 @@ service ideal_product_complaint_srv {
     }
 
     action createProductComplaint(action : String, appType:String, PprHeader : many PprHeader, PprAttachment : many PprAttachment, PprEvent : many PprEvent, userDetails : User_Details) returns String;
+
+    action createProductComplaintMdk(action : String, appType:String, PprHeader : String, PprAttachment : String, PprEvent : String, userDetails : User_Details) returns many String;
+
 }

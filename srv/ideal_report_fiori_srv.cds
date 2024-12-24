@@ -21,6 +21,8 @@ using {
 
 service ideal_report_fiori_srv {
     entity MasterClientInfo                as projection on DEALER_PORTAL.MASTER_EMAIL_CONTACT_ID;
+      @restrict: [
+    { grant: '*', to:['ZIDEAL_SR_DM_ADMIN']}]
   entity MasterIdealUsers                 as projection on DEALER_PORTAL.MASTER_IDEAL_USERS;
   entity RequestInfo                     as projection on DEALER_PORTAL.REQUEST_INFO{
     *,

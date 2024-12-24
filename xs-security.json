@@ -1,0 +1,45 @@
+{
+  "xsappname": "DEALER_PORTAL-xsapp",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.ZIDEAL_SR_DM_ADMIN",
+      "description": "ZIDEAL_SR_DM_ADMIN"
+    },
+    {
+      "name": "$XSAPPNAME.ZIDEAL_SR_DM_APPROVER",
+      "description": "ZIDEAL_SR_DM_APPROVER"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "ZIDEAL_SR_DM_ADMIN",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.ZIDEAL_SR_DM_ADMIN"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "ZIDEAL_SR_DM_APPROVER",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.ZIDEAL_SR_DM_APPROVER"
+      ],
+      "attribute-references": []
+    }
+  ],
+  "oauth2-configuration": {
+    "credential-types": [
+      "binding-secret",
+      "x509"
+    ],
+    "redirect-uris": [
+      "https://*.applicationstudio.cloud.sap/**",
+      "http://localhost:5000/",
+      "https://port5000-workspaces-ws-cqsn4.us10.trial.applicationstudio.cloud.sap/",
+      "https://38a2b79dtrial-dev-dealer-portal.cfapps.us10-001.hana.ondemand.com/"
+    ]
+  }
+}

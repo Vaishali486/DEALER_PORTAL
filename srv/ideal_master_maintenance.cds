@@ -3,6 +3,7 @@ using {DEALER_PORTAL} from '../db/MASTER_TABLES';
 service ideal_master_maintenance {
 
     entity MasterCountry as projection on DEALER_PORTAL.MASTER_COUNTRY;
+      @restrict: [{ grant: '*', to:['ZIDEAL_SR_DM_ADMIN']}]
     entity MasterUserRole as projection on DEALER_PORTAL.MASTER_USER_ROLE;
     entity MasterTableNames as projection on DEALER_PORTAL.MASTER_TABLENAMES;
     entity MasterRegion as projection on DEALER_PORTAL.MASTER_REGION;
@@ -10,6 +11,7 @@ service ideal_master_maintenance {
     entity MasterTelecode as projection on DEALER_PORTAL.MASTER_TELECODE;
     entity MasterEntityCode as projection on DEALER_PORTAL.MASTER_ENTITY_CODE;
     entity MasterAttachmentTypes as projection on DEALER_PORTAL.MASTER_ATTACHMENT_TYPES;
+    
     entity MasterIasUser as projection on DEALER_PORTAL.MASTER_IAS_USER;
     entity MasterIbanCountry as projection on DEALER_PORTAL.MASTER_IBAN_COUNTRY;
     entity MasterIdealSettings as projection on DEALER_PORTAL.MASTER_IDEAL_SETTINGS;
@@ -21,6 +23,8 @@ service ideal_master_maintenance {
     entity MasterRegformFieldsIdDesc as projection on DEALER_PORTAL.MASTER_REGFORM_FIELDS_ID_DESC;
     entity MatrixRequestAppr as projection on DEALER_PORTAL.MATRIX_REQUEST_APPR;
     entity MatrixRegistrationAppr as projection on DEALER_PORTAL.MATRIX_REGISTRATION_APPR;
+     @restrict: [
+    { grant: '*', to:['ZIDEAL_SR_DM_ADMIN']}]
     entity MasterIdealUsers as projection on DEALER_PORTAL.MASTER_IDEAL_USERS;
     entity MasterUserEntityUsers as projection on DEALER_PORTAL.MASTER_USER_ENTITY_CODES;
     entity MasterCredential as projection on DEALER_PORTAL.MASTER_CREDENTIAL;

@@ -4,6 +4,7 @@ DEALER_PORTAL.MASTER_PR_STATUS,DEALER_PORTAL.MASTER_IDEAL_USERS,DEALER_PORTAL.MA
 
 service ideal_purchase_creation_srv {
 
+   @cds.odata.valuelist 
     entity PrHeader as projection on DEALER_PORTAL.PR_HEADER;
     entity PrItems as projection on DEALER_PORTAL.PR_ITEMS;
     entity SoHeader as projection on DEALER_PORTAL.SO_HEADER;
@@ -11,7 +12,11 @@ service ideal_purchase_creation_srv {
     entity PrEventLog as projection on DEALER_PORTAL.PR_EVENT_LOG;
     entity MasterSoStatus as projection on DEALER_PORTAL.MASTER_SO_STATUS;
     entity MasterPrEvent as projection on DEALER_PORTAL.MASTER_PR_EVENT;
+
+     @cds.odata.valuelist
     entity MasterPrStatus as projection on DEALER_PORTAL.MASTER_PR_STATUS;
+      @restrict: [
+    { grant: '*', to:['ZIDEAL_SR_DM_ADMIN']}]
     entity MasterIdealUsers as projection on DEALER_PORTAL.MASTER_IDEAL_USERS;
     entity UserMasterEntities as projection on USERMASTER_ENTITIES;
     entity MasterUserRole as projection on DEALER_PORTAL.MASTER_USER_ROLE;

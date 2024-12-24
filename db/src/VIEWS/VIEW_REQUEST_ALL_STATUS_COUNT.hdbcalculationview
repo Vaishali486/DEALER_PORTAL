@@ -76,11 +76,11 @@
     </shape>
     <shape modelObjectName="DEALER_PORTAL_REQUEST_INFO" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="268.46875"/>
+      <rectangleSize width="268"/>
     </shape>
     <shape modelObjectName="DEALER_PORTAL_MASTER_STATUS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="278.681640625"/>
+      <rectangleSize width="278"/>
     </shape>
   </shapes>
 </layout>

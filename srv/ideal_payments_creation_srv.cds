@@ -20,4 +20,7 @@ service ideal_payments_creation_srv {
     }
 
     action createPayment(action : String, appType:String, paymentsHeader : many PaymentsHeader, paymentsAttachments : many PaymentsAttachments, paymentsEventLog : many PaymentsEventLog, userDetails : User_Details) returns String;
+    action createPaymentMDK(action : String, appType:String, paymentsHeader : String, paymentsAttachments : String, paymentsEventLog : String, userDetails : User_Details) returns many String;
+
+
 }

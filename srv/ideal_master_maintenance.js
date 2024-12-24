@@ -75,8 +75,12 @@ module.exports = cds.service.impl(async function(){
       try {
         //Connection to database
         let connection = await cds.connect.to('db');
-        queryResult = await connection.run(SELECT.from`${connection.entities['DEALER_PORTAL.MASTER_IDEAL_USERS']}`
-          .where`EMAIL = ${data[0].EMAIL} AND ACTIVE = 'X'`);
+        // var queryResult = await connection.run(SELECT.from`${connection.entities['DEALER_PORTAL_MASTER_IDEAL_USERS']}`
+        //   .where`EMAIL=${data[0].EMAIL} AND ACTIVE = 'X'`);
+         var queryResult = await SELECT.from`DEALER_PORTAL_MASTER_IDEAL_USERS`
+          .where`EMAIL=${data[0].EMAIL} AND ACTIVE = 'X'`;
+
+          
         if (queryResult.length === 0) {
           return false;
         } else {return true;}

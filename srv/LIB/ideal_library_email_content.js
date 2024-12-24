@@ -4,8 +4,11 @@ const { Connection } = require("@sap/hana-client");
 
 // App paths from portal
 const sLink_Request_Report = "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_request_fiori_report-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealrequestfiorireport&/RequestInfo";
-const sLink_Registraion_Approval = "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_registration_approval-display?&/Detail/";
-const sLink_Request_Approval = "site/iven#iven_request_approval-display&/RouteMaster/";
+// const sLink_Registraion_Approval = "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_registration_approval-display?&/Detail/";
+const sLink_Registraion_Approval = "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#registrationapproval-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealregistrationapproval&/Detail/";
+
+// const sLink_Request_Approval = "site/iven#iven_request_approval-display&/RouteMaster/";
+const sLink_Request_Approval = "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#requestapproval-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealrequestapproval&/MasterPage/";
 
 module.exports = {
 
@@ -45,10 +48,11 @@ module.exports = {
 		var sClientName = aEmailIds.CLIENT_FULL_NAME;
 		var sClientShortName = aEmailIds.CLIENT_SHORT_NAME;
 
-		var sLink_Portal_GuestAccess = sDetails.PORTAL_LINK ;
-		var sLink_Portal_LoginAccess = sDetails.PORTAL_LINK ;
+		var sLink_Portal_GuestAccess = sDetails.PORTAL_LINK;
+		var sLink_Portal_LoginAccess = sDetails.PORTAL_LINK;
 
-		var sLink_Registation_Form =  sLink_Portal_GuestAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_registration_form-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealregistrationform&/Login";
+		// var sLink_Registation_Form =  sLink_Portal_GuestAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_registration_form-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealregistrationform&/Login";
+		var sLink_Registation_Form =  sLink_Portal_GuestAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#registrationform-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealregistrationform&/Login"
 		
 		var greetingsTo;
 		var linkcontent;
@@ -152,8 +156,10 @@ module.exports = {
 		var sLink_Portal_GuestAccess = sDetails.PORTAL_LINK ;
 		var sLink_Portal_LoginAccess = sDetails.PORTAL_LINK ;
 
-		var sLink_Registation_Form =  sLink_Portal_GuestAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_registration_form-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealregistrationform&/Login";
+		// var sLink_Registation_Form =  sLink_Portal_GuestAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_registration_form-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealregistrationform&/Login";
+		   var sLink_Registation_Form =  sLink_Portal_GuestAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#registrationform-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealregistrationform&/Login";
 		
+ 		
 		var greetingsTo;
 		var linkcontent;
 		var sRows = "";
@@ -162,7 +168,8 @@ module.exports = {
 			if (sAction === "CREATE") { 
 
 				Emailbody = "Dear Approver," + "<br><br>";
-				var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#product_complaint_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.productcomplaintapproval&/DetailPage/"+ parseInt(oEmailData.PprNo, 10);
+			 // var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#product_complaint_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.productcomplaintapproval&/DetailPage/"+ parseInt(oEmailData.PprNo, 10);
+				var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ProductComplaintApproval-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealproductcomplaintapproval&/DetailPage/" + parseInt(oEmailData.PprNo, 10);
 				oEmailContent.emailBody = "Product complaint request no. " + oEmailData.PprNo +
 				" has been created and currently pending for your approval." + "<br>" + "<br>" +
 				"Please click " + "<a href=" +  link + ">" + "here" + "</a>" + " to login to " + sClientShortName + " Portal and approve." +
@@ -180,7 +187,9 @@ module.exports = {
 			}
 			else if(sAction === "APPROVE_PENDING")
 			{
-				var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#product_complaint_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.productcomplaintapproval&/DetailPage/"+ parseInt(oEmailData.PprNo, 10);
+			 // var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#product_complaint_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.productcomplaintapproval&/DetailPage/"+ parseInt(oEmailData.PprNo, 10);
+				var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ProductComplaintApproval-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealproductcomplaintapproval&/DetailPage/"+ parseInt(oEmailData.PprNo, 10);
+
 				oEmailContent.subject = "Product Complaint Request Approved";
 				oEmailContent.emailBody = "Product Complaint Request No " + oEmailData.PprReqNo +
 				" has been approved by " +oEmailData.Approve_Role+" "+oEmailData.Approver +" and is currently pending for your approval." + "<br>" + "<br>" +
@@ -243,7 +252,8 @@ module.exports = {
 			if (sAction === "CREATE") { 
 
 				Emailbody = "Dear Approver," + "<br><br>";
-				var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_rga_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealrgaapproval&/DetailPage/"+ parseInt(oEmailData.RgaRequestNo, 10);
+				// var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_rga_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealrgaapproval&/DetailPage/"+ parseInt(oEmailData.RgaRequestNo, 10);
+				var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#rgaapproval-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealrgaapproval&/DetailPage/"+ parseInt(oEmailData.RgaRequestNo, 10);
 			
 				oEmailContent.emailBody = oEmailData.RgaReqNo +   
 				" and currently pending for your approval." + "<br>" + "<br>" +
@@ -262,8 +272,10 @@ module.exports = {
 			if (sAction === "APPROVE_PENDING") {
 
 				// var link =sLink_Portal_LoginAccess;  
+				// var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_rga_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealrgaapproval&/DetailPage/"+ parseInt(oEmailData.RgaReqNo, 10)
+				// var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#rgaapproval-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealrgaapproval&/DetailPage/"+ parseInt(oEmailData.RgaReqNo, 10)
 				var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_rga_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealrgaapproval&/DetailPage/"+ parseInt(oEmailData.RgaReqNo, 10)
-   
+				 
 				oEmailContent.subject = "RGA notification";
 				oEmailContent.emailBody = "RGA request no "+ oEmailData.RgaReqNo +
 				// " has been approved by " +oEmailData.Approve_Role+" "+oEmailData.Approver +" and is currently pending for your approval." + "<br>" + "<br>" +
@@ -332,7 +344,8 @@ module.exports = {
 			if (sAction === "CREATE") {
 
 				Emailbody = "Dear Approver," + "<br><br>";
-				var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_payment_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealpaymentapproval&/DetailPage/"+ parseInt(oEmailData.PayReqNo, 10);
+				// var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_payment_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealpaymentapproval&/DetailPage/"+ parseInt(oEmailData.PayReqNo, 10);
+				   var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#PaymentRequestApproval-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealpaymentapproval&/DetailPage/"+ parseInt(oEmailData.PayReqNo, 10);
 				// + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_claim_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealclaimapproval&/DetailPage/"+ parseInt(oEmailData.ClaimReqNo, 10);
 				oEmailContent.emailBody = "Payment request no. " + oEmailData.PayReqNo +
 				" has been created and currently pending for your approval." + "<br>" + "<br>" +
@@ -352,7 +365,9 @@ module.exports = {
 			else if(sAction === "UPDATE"){
 
 				Emailbody = "Dear Approver," + "<br><br>";
-				var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_payment_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealpaymentapproval&/DetailPage/"+ parseInt(oEmailData.PayReqNo, 10);
+				// var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_payment_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealpaymentapproval&/DetailPage/"+ parseInt(oEmailData.PayReqNo, 10);
+				   var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#PaymentRequestApproval-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealpaymentapproval&/DetailPage/"+ parseInt(oEmailData.PayReqNo, 10);
+
 				// + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_claim_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealclaimapproval&/DetailPage/"+ parseInt(oEmailData.ClaimReqNo, 10);
 				oEmailContent.emailBody = "Payment request no. " + oEmailData.PayReqNo +
 				" has been updated and currently pending for your approval." + "<br>" + "<br>" +
@@ -373,7 +388,9 @@ module.exports = {
 			else if(sAction === "APPROVE_PENDING")
 			{
 				
-				var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_payment_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealpaymentapproval&/DetailPage/"+ parseInt(oEmailData.PayReqNo, 10);
+			 // var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_payment_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealpaymentapproval&/DetailPage/"+ parseInt(oEmailData.PayReqNo, 10);
+				var link =sLink_Portal_LoginAccess+"site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#PaymentRequestApproval-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealpaymentapproval&/DetailPage/"+ parseInt(oEmailData.PayReqNo, 10);
+
 				// + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_claim_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealclaimapproval&/DetailPage/"+ parseInt(oEmailData.ClaimReqNo, 10);
 
 				oEmailContent.subject = "Payment Request Approved";
@@ -454,7 +471,9 @@ module.exports = {
 			if (sAction === "CREATE") {
 
 				Emailbody = "Dear Approver," + "<br><br>";
-				var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_claim_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealclaimapproval&/DetailPage/"+ parseInt(oEmailData.ClaimReqNo, 10);
+			 // var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_claim_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealclaimapproval&/DetailPage/"+ parseInt(oEmailData.ClaimReqNo, 10);
+				var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#claimapproval-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealclaimapproval&/DetailPage/"+ parseInt(oEmailData.ClaimReqNo, 10);
+
 				oEmailContent.emailBody = "Claim Request No. " + oEmailData.ClaimReqNo +
 				" has been created and currently pending for your approval." + "<br>" + "<br>" +
 				"Please click " + "<a href=" +  link + ">" + "here" + "</a>" + " to login to " + sClientShortName + " Portal and approve." +
@@ -473,7 +492,8 @@ module.exports = {
 			else if(sAction === "APPROVE_PENDING")
 			{
 				
-				var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_claim_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealclaimapproval&/DetailPage/"+ parseInt(oEmailData.ClaimReqNo, 10);
+				// var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_claim_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealclaimapproval&/DetailPage/"+ parseInt(oEmailData.ClaimReqNo, 10);
+				   var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#claimapproval-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealclaimapproval&/DetailPage/"+ parseInt(oEmailData.ClaimReqNo, 10);
 
 				oEmailContent.subject = "Claim Request Approved";
 				oEmailContent.emailBody = "Claim Request No " + oEmailData.ClaimReqNo +
@@ -554,7 +574,9 @@ module.exports = {
 			if (sAction === "CREATE") {
 
 				Emailbody = "Dear Approver," + "<br><br>";
-				var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_sales_order_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealsalesorderapproval&/DetailPage/"+ parseInt(oEmailData.PurReqNo, 10)+"/1";
+				// var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_sales_order_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealsalesorderapproval&/DetailPage/"+ parseInt(oEmailData.PurReqNo, 10)+"/1";
+				var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#SalesOrderApproval-disaplay?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealsalesorderapproval&/DetailPage/"+ parseInt(oEmailData.PurReqNo, 10)+"/1";
+
 				// + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_request_approval-display?&/MasterPage/"+ parseInt(oEmailData.ReqNo, 10);
 				oEmailContent.emailBody = "Purchase Request No. " + oEmailData.PurReqNo +
 				" has been created and is currently pending your approval." + "<br>" + "<br>" +
@@ -576,7 +598,9 @@ module.exports = {
 			else if(sAction === "APPROVE_PENDING")
 			{
 				
-				var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_sales_order_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealsalesorderapproval&/DetailPage/"+ parseInt(oEmailData.PurReqNo, 10)+"/1";
+			 // var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_sales_order_approval-display?sap-ui-app-id-hint=saas_approuter_com.ibspl.ideal.idealsalesorderapproval&/DetailPage/"+ parseInt(oEmailData.PurReqNo, 10)+"/1";
+				var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#SalesOrderApproval-disaplay?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealsalesorderapproval&/DetailPage/"+ parseInt(oEmailData.PurReqNo, 10)+"/1";
+
 				// + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_request_approval-display?&/MasterPage/"+ parseInt(oEmailData.ReqNo, 10);
 				
 				oEmailContent.subject = "Purchase Request Approved";
@@ -669,7 +693,9 @@ module.exports = {
 				}
 
 				Emailbody = "Dear Approver," + "<br><br>";
-				var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_request_approval-display?&/MasterPage/"+ parseInt(oEmailData.ReqNo, 10);
+				// var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_request_approval-display?&/MasterPage/"+ parseInt(oEmailData.ReqNo, 10);
+				   var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#requestapproval-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealrequestapproval&/MasterPage/"+ parseInt(oEmailData.ReqNo, 10);
+
 				oEmailContent.emailBody = req + "Request No. " + oEmailData.ReqNo + " for Distributor " + oEmailData.SupplierName +
 					" has been created and is currently pending your approval." + "<br>" + "<br>" +
 					"Please click " + "<a href=" +  link + ">" + "here" + "</a>" + " to login to " + sClientShortName + " Portal and approve." +
@@ -725,7 +751,9 @@ module.exports = {
 			}else if (sAction === "Approve_Pending") {
 
 				var req_Type = oEmailData.ReqType.toString();
-				var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_request_approval-display?&/MasterPage/"+ parseInt(oEmailData.ReqNo, 10);
+			 // var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#ideal_request_approval-display?&/MasterPage/"+ parseInt(oEmailData.ReqNo, 10);
+				var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#requestapproval-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealrequestapproval&/MasterPage/"+ parseInt(oEmailData.ReqNo, 10);
+
 				if (req_Type === "1" || req_Type === "2" || req_Type === "3" || req_Type === "6") {
 					oEmailContent.subject = "Distributor Request Approved";
 
@@ -804,7 +832,9 @@ module.exports = {
 				}   
 				Emailbody = "Dear Distributor," + "<br><br>";
 				// var link = "Vendor_Request_Approval-Approve&/VendorInviteList/" + parseInt(oEmailData.ReqNo, 10);
-				var link =sLink_Portal_LoginAccess + "site?siteId=dfe9a08b-9dd0-4282-b092-59cf8a8da401#iven_request_approval-display?&/RouteMaster/"+ parseInt(oEmailData.ReqNo, 10);
+				// var link =sLink_Portal_LoginAccess + "site?siteId=dfe9a08b-9dd0-4282-b092-59cf8a8da401#iven_request_approval-display?&/RouteMaster/"+ parseInt(oEmailData.ReqNo, 10);
+				   var link =sLink_Portal_LoginAccess + "site?siteId=63f3b36c-14be-4338-b1a1-dbb68f492677#requestapproval-display?sap-ui-app-id-hint=saas_approuter_com.ibs.ibsappidealrequestapproval&/MasterPage/"+ parseInt(oEmailData.ReqNo, 10);
+
 				oEmailContent.emailBody = req + "Request No. " + oEmailData.ReqNo + " for Distributor " + oEmailData.SupplierName +
 				" has been created." + "<br>" + "<br>" +
 				"<br>" +

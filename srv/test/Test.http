@@ -1,0 +1,413 @@
+`````   
+###
+GET  http://localhost:4004/odata/v4/ideal-additional-process-srv/checkServiceAvailability(cloudSrv=true,onPremiseSrv=true)
+Content-Type: application/json
+
+###
+POST http://localhost:4004/odata/v4/ideal-master-maintenance/PostUserMaster
+Content-Type: application/json
+
+{
+    "input": {
+        "ACTION": "CREATE",
+        "USER_DETAILS": {
+            "USER_ROLE": "SA",
+            "USER_ID": "darshan.l@intellectbizware.com"
+        },
+        "VALUE": [
+            {
+                "USERMASTER": [
+                    {
+                        "SR_NO": 1,
+                        "USER_ID": "aniket.s@intellectbizware.com",
+                        "USER_ROLE": "CM",
+                        "USER_NAME": "Aniket Sable",
+                        "EMAIL": "aniket.s@intellectbizware.com",
+                        "COMPANY_CODE": "1001,1010,1000,1020,1001,1010,1000,1020",
+                        "EMP_NO": "null",
+                        "CREATED_ON": "2024-10-17T06:38:04.423Z",
+                        "UPDATED_ON": "2024-10-17T06:38:04.423Z",
+                        "ACTIVE": "X"
+                    },
+                    {
+                        "SR_NO": 1,
+                        "USER_ID": "aniket.s@intellectbizware.com",
+                        "USER_ROLE": "DIST",
+                        "USER_NAME": "Aniket Sable",
+                        "EMAIL": "aniket.s@intellectbizware.com",
+                        "COMPANY_CODE": "1001,1010,1000,1020,1001,1010,1000,1020",
+                        "EMP_NO": "null",
+                        "CREATED_ON": "2024-10-17T06:38:04.423Z",
+                        "UPDATED_ON": "2024-10-17T06:38:04.423Z",
+                        "ACTIVE": "X"
+                    }
+                ],
+                "ENTITYDATA": [
+                    {
+                        "USER_ID": "aniket.s@intellectbizware.com",
+                        "USER_ROLE": "CM",
+                        "ENTITY_CODE": "1001",
+                        "ENTITY_DESC": "BIPL LTD",
+                        "EMAIL": "aniket.s@intellectbizware.com"
+                    },
+                    {
+                        "USER_ID": "aniket.s@intellectbizware.com",
+                        "USER_ROLE": "CM",
+                        "ENTITY_CODE": "1010",
+                        "ENTITY_DESC": "New ABC Limited - SA",
+                        "EMAIL": "aniket.s@intellectbizware.com"
+                    },
+                    {
+                        "USER_ID": "aniket.s@intellectbizware.com",
+                        "USER_ROLE": "CM",
+                        "ENTITY_CODE": "1000",
+                        "ENTITY_DESC": "ABC Company Limited",
+                        "EMAIL": "aniket.s@intellectbizware.com"
+                    },
+                    {
+                        "USER_ID": "aniket.s@intellectbizware.com",
+                        "USER_ROLE": "CM",
+                        "ENTITY_CODE": "1020",
+                        "ENTITY_DESC": "New ABC Limited USA",
+                        "EMAIL": "aniket.s@intellectbizware.com"
+                    },
+                    {
+                        "USER_ID": "aniket.s@intellectbizware.com",
+                        "USER_ROLE": "DIST",
+                        "ENTITY_CODE": "1001",
+                        "ENTITY_DESC": "BIPL LTD",
+                        "EMAIL": "aniket.s@intellectbizware.com"
+                    },
+                    {
+                        "USER_ID": "aniket.s@intellectbizware.com",
+                        "USER_ROLE": "DIST",
+                        "ENTITY_CODE": "1010",
+                        "ENTITY_DESC": "New ABC Limited - SA",
+                        "EMAIL": "aniket.s@intellectbizware.com"
+                    },
+                    {
+                        "USER_ID": "aniket.s@intellectbizware.com",
+                        "USER_ROLE": "DIST",
+                        "ENTITY_CODE": "1000",
+                        "ENTITY_DESC": "ABC Company Limited",
+                        "EMAIL": "aniket.s@intellectbizware.com"
+                    },
+                    {
+                        "USER_ID": "aniket.s@intellectbizware.com",
+                        "USER_ROLE": "DIST",
+                        "ENTITY_CODE": "1020",
+                        "ENTITY_DESC": "New ABC Limited USA",
+                        "EMAIL": "aniket.s@intellectbizware.com"
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+###
+POST http://localhost:4004/odata/v4/ideal-rga-process/rgaProcess
+Content-Type: application/json
+
+{
+    "action": "CREATE",
+    "appType": "RG",
+    "rgHeader": [
+        {
+            "RGA_NO": 1,
+            "DISTRIBUTOR_ID": "1100013",
+            "DISTRIBUTOR_NAME": "Star Enterprise",
+            "DISTRIBUTOR_REASON": "Quantity discrepancy",
+            "STATUS": 1,
+            "APPROVER_LEVEL": 1,
+            "APPROVER_ROLE": "SM",
+            "BU_CODE": "INTELLECT",
+            "SAP_RETURN_CODE": "",
+            "COMMENT": "TEST",
+            "CREATED_ON": "2024-05-27T12:02:10.543Z"
+        }
+    ],
+    "rgItems": [
+        {
+            "RGA_NO": 1,
+            "RGA_ITEM_NO": 1,
+            "ITEM_CODE": "1000000001",
+            "ITEM_DESCRIPTION": "Cool Cream 100 gm 1*50",
+            "UNIT_OF_MEASURE": "UN",
+            "BATCH": "1001052020",
+            "EXPIRY_DATE": "2024-05-27",
+            "SALEABLE": "Y",
+            "INVOICE_NO": "8018100065",
+            "INVOICE_DATE": "2020-07-02",
+            "INVOICE_QUANTITY": 100,
+            "PRICE": 151900,
+            "EXTENDED": 151900,
+            "RETURN_QUANTITY": 100,
+            "ACCEPTED_QUANTITY": 0,
+            "ACCEPTED_PRICE": 0
+        }
+    ],
+    "rgEvent": [
+        {
+            "RGA_NO": 1,
+            "EVENT_NO": 1,
+            "EVENT_CODE": 1,
+            "USER_ID": "darshan.l@intellectbizware.com",
+            "USER_NAME": "Darshan Lad",
+            "USER_ROLE": "CM",
+            "REMARK": "Created by Distributor",
+            "COMMENT": "RGA request created",
+            "CREATION_DATE": "2024-05-27T12:02:10.543Z"
+        }
+    ]
+
+}
+
+###
+POST http://localhost:4004/odata/v4/ideal-claim-creation-srv/CreateClaimMDK
+Content-Type: application/json
+
+{
+    "action": "APPROVE",
+    "appType": "CR",
+    "crAttachments": null,
+    "crEvent": "[{\"CR_NO\":400000096,\"EVENT_NO\":1,\"EVENT_CODE\":1,\"USER_ID\":\"darshan.l@intellectbizware.com\",\"USER_ROLE\":\"SA\",\"USER_NAME\":\"Darshan Lad\",\"REMARK\":\"Claim request Approved\",\"COMMENT\":\"Claim request approved\",\"CREATION_DATE\":null}]",
+    "crHeader": "[{\"CR_NO\":400000096,\"DISTRIBUTOR_ID\":\"1100013\",\"DISTRIBUTOR_NAME\":\"Star Enterprise\",\"CLAIM_TYPE\":3,\"CLAIM_DESC\":\"Workshops\",\"CLAIM_REASON\":\"TEST \",\"CLAIM_FROM\":\"2024-09-02\",\"CLAIM_TO\":\"2024-09-03\",\"STATUS\":1,\"APPROVER_LEVEL\":1,\"APPROVER_ROLE\":\"SA\",\"SALES_ASSOCIATE_ID\":\"5035\",\"REGION_CODE\":\"T\",\"SAP_CREDIT_NOTE\":\"\",\"LAST_UPDATED\":\"2024-09-25T05:07:58.298Z\",\"CREATED_ON\":\"2024-09-25T05:07:58.298Z\"}]",
+    "crItems": "[{\"CR_NO\":400000096,\"ITEM_NO\":1,\"ITEM_CODE\":\"6000000042\",\"ITEM_DESC\":\"Twinings Lemon Ginger Tea\",\"HOSPITAL_CODE\":123,\"INVOICE_NO\":8018102386,\"INVOICE_DATE\":\"2024-08-13\",\"INVOICE_QUANTITY\":2,\"INVOICE_RATE\":682.18,\"REQUESTED_RATE\":682.18,\"REQUESTED_QUANTITY\":2,\"REQUESTED_AMOUNT\":1364.36,\"PROCESSSED_RATE\":10,\"PROCESSSED_QUANTITY\":1,\"PROCESSSED_AMOUNT\":100}]",
+    "userDetails": {
+        "USER_ID": "komal.w@intellectbizware.com",
+        "USER_ROLE": "SA"
+    }
+}
+
+###
+POST http://localhost:4004/odata/v4/ideal-purchase-creation-srv/CreatePurchase
+Content-Type: application/json
+
+{
+    "action": "APPROVE",
+    "appType": "PR",
+    "prHeader": [
+        {
+            "PR_NO": 1000000395,
+            "SAP_SO_NO": null,
+            "PR_CREATION_DATE": "2024-11-04T11:31:29.812Z",
+            "DISTRIBUTOR_ID": "1100013",
+            "DISTRIBUTOR_NAME": "Star Enterprize",
+            "SHIP_TO": "1100013",
+            "SHIP_NAME": "Star Enterprize",
+            "SHIP_FROM": null,
+            "BILL_TO": null,
+            "ORDER_TYPE": null,
+            "PAYMENT_METHOD": "0002",
+            "REGION_CODE": null,
+            "PR_STATUS": "1",
+            "LAST_UPDATED_DATE": "2024-11-04T11:31:29.812Z",
+            "APPROVER_LEVEL": 1,
+            "APPROVER_ROLE": "SA",
+            "GRAND_TOTAL": "472"
+        }
+    ],
+    "prCart": [],
+    "prItems": [
+        {
+            "PR_NO": 1000000395,
+            "PR_ITEM_NO": 1,
+            "MATERIAL_CODE": "3000000040",
+            "MATERIAL_DESC": "Raw Material-3",
+            "IMAGE_URL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUVFBcVFRUXGBcZHCMdGhoaGh4hHR4hJCMgIBoeISEgJS4jICMrIiIiJTYlKS0vMzMzHSI4PjgyPSwyMy8BCwsLDw4PHRISHTIpICkyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyM",
+            "HSN_CODE": "999999",
+            "UNIT_OF_MEASURE": "BOX",
+            "QUANTITY": 1,
+            "FREE_QUANTITY": null,
+            "STD_PRICE": null,
+            "BASE_PRICE": null,
+            "DISC_AMOUNT": null,
+            "DISC_PERC": null,
+            "NET_AMOUNT": "400.000",
+            "TOTAL_AMOUNT": "472",
+            "CGST_PERC": "9.00",
+            "CGST_AMOUNT": null,
+            "SGST_PERC": "9.00",
+            "SGST_AMOUNT": null,
+            "IGST_PERC": "9.00",
+            "IGST_AMOUNT": null,
+            "TAXES_AMOUNT": "18"
+        }
+    ],
+    "prEvent": [
+        {
+            "PR_NO": 1,
+            "EVENT_NO": 1,
+            "EVENT_CODE": "1",
+            "USER_ID": "darshan.l@intellectbizware.com",
+            "USER_NAME": "Darshan Lad",
+            "COMMENTS": "Purchase request approve",
+            "CREATION_DATE": null
+        }
+    ],
+    "userDetails": {
+        "USER_ID": "darshan.l@intellectbizware.com"
+    }
+}
+
+
+###
+POST http://localhost:4004/odata/v4/ideal-master-maintenance/PostUserMaster
+Content-Type: application/json
+
+{
+    "input": {
+        "ACTION": "CREATE",
+        "USER_DETAILS": {
+            "USER_ID": "siddhesh.d@intellectbizware.com",
+            "USER_ROLE": "SA"
+        },
+        "VALUE": [
+            {
+                "USERMASTER": [
+                    {
+                        "ACTIVE": "X",
+                        "COMPANY_CODE": "1000",
+                        "CREATED_ON": "2024-10-11T09:59:07.628Z",
+                        "EMAIL": "priya.g@intellectbizware.com",
+                        "EMP_NO": null,
+                        "SR_NO": 1,
+                        "UPDATED_ON": "2024-10-11T09:59:07.628Z",
+                        "USER_ID": "priya.g@intellectbizware.com",
+                        "USER_NAME": "Priya Gawade",
+                        "USER_ROLE": "CM"
+                    }
+                ],
+                "ENTITYDATA": [
+                    {
+                        "EMAIL": "priya.g@intellectbizware.com",
+                        "ENTITY_CODE": "1000",
+                        "ENTITY_DESC": "ABC Company Limited",
+                        "USER_ID": "priya.g@intellectbizware.com",
+                        "USER_ROLE": "CM"
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+###
+POST http://localhost:4004/odata/v4/ideal-purchase-creation-srv/CreatePurchase
+Content-Type: application/json
+
+{
+    "action": "APPROVE",
+    "appType": "PR",
+    "prHeader": [
+        {
+            "PR_NO": 1000000405,
+            "SAP_SO_NO": null,
+            "PR_CREATION_DATE": "2024-11-09T14:17:10.348Z",
+            "DISTRIBUTOR_ID": "1100013",
+            "DISTRIBUTOR_NAME": "Star Enterprize",
+            "SHIP_TO": "1100013",
+            "SHIP_NAME": "Star Enterprize",
+            "SHIP_FROM": null,
+            "BILL_TO": null,
+            "ORDER_TYPE": null,
+            "PAYMENT_METHOD": "0002",
+            "REGION_CODE": null,
+            "PR_STATUS": "1",
+            "LAST_UPDATED_DATE": "2024-11-09T14:17:10.348Z",
+            "APPROVER_LEVEL": 1,
+            "APPROVER_ROLE": "SA",
+            "GRAND_TOTAL": "7386.8"
+        }
+    ],
+    "prCart": [],
+    "prItems": [
+        {
+            "PR_NO": 1000000405,
+            "PR_ITEM_NO": 1,
+            "MATERIAL_CODE": "3000000040",
+            "MATERIAL_DESC": "Raw Material-3",
+            "IMAGE_URL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUVFBcVFRUXGBcZHCMdGhoaGh4hHR4hJCMgIBoeISEgJS4jICMrIiIiJTYlKS0vMzMzHSI4PjgyPSwyMy8BCwsLDw4PHRISHTIpICkyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyM",
+            "HSN_CODE": "999999",
+            "UNIT_OF_MEASURE": "BOX",
+            "QUANTITY": 2,
+            "FREE_QUANTITY": null,
+            "STD_PRICE": null,
+            "BASE_PRICE": null,
+            "DISC_AMOUNT": null,
+            "DISC_PERC": null,
+            "NET_AMOUNT": "400.000",
+            "TOTAL_AMOUNT": "944",
+            "CGST_PERC": "9.00",
+            "CGST_AMOUNT": null,
+            "SGST_PERC": "9.00",
+            "SGST_AMOUNT": null,
+            "IGST_PERC": "9.00",
+            "IGST_AMOUNT": null,
+            "TAXES_AMOUNT": "18"
+        },
+        {
+            "PR_NO": 1000000405,
+            "PR_ITEM_NO": 2,
+            "MATERIAL_CODE": "3000000031",
+            "MATERIAL_DESC": "Raw Material-2",
+            "IMAGE_URL": "https://m.media-amazon.com/images/I/61OCDKFpV8L._AC_UF1000,1000_QL80_.jpg",
+            "HSN_CODE": "999999",
+            "UNIT_OF_MEASURE": "BOX",
+            "QUANTITY": 1,
+            "FREE_QUANTITY": null,
+            "STD_PRICE": null,
+            "BASE_PRICE": null,
+            "DISC_AMOUNT": null,
+            "DISC_PERC": null,
+            "NET_AMOUNT": "1200.000",
+            "TOTAL_AMOUNT": "1416",
+            "CGST_PERC": "9.00",
+            "CGST_AMOUNT": null,
+            "SGST_PERC": "9.00",
+            "SGST_AMOUNT": null,
+            "IGST_PERC": "9.00",
+            "IGST_AMOUNT": null,
+            "TAXES_AMOUNT": "18"
+        },
+        {
+            "PR_NO": 1000000405,
+            "PR_ITEM_NO": 3,
+            "MATERIAL_CODE": "1000000002",
+            "MATERIAL_DESC": "Finished Material",
+            "IMAGE_URL": "https://www.colourinn.in/wp-content/uploads/2022/09/Colo-edited.jpg",
+            "HSN_CODE": "999999",
+            "UNIT_OF_MEASURE": "BOX",
+            "QUANTITY": 2,
+            "FREE_QUANTITY": null,
+            "STD_PRICE": null,
+            "BASE_PRICE": null,
+            "DISC_AMOUNT": null,
+            "DISC_PERC": null,
+            "NET_AMOUNT": "2130.000",
+            "TOTAL_AMOUNT": "5026.8",
+            "CGST_PERC": "9.00",
+            "CGST_AMOUNT": null,
+            "SGST_PERC": "9.00",
+            "SGST_AMOUNT": null,
+            "IGST_PERC": "9.00",
+            "IGST_AMOUNT": null,
+            "TAXES_AMOUNT": "18"
+        }
+    ],
+    "prEvent": [
+        {
+            "PR_NO": 1,
+            "EVENT_NO": 1,
+            "EVENT_CODE": "1",
+            "USER_ID": "darshan.l@intellectbizware.com",
+            "USER_NAME": "Darshan Lad",
+            "COMMENTS": "Purchase request approve",
+            "CREATION_DATE": null
+        }
+    ],
+    "userDetails": {
+        "USER_ID": "darshan.l@intellectbizware.com"
+    }
+}

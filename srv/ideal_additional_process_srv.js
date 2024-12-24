@@ -21,6 +21,15 @@ this.on('checkServiceAvailability',async(req)=>{
       // var {sapClient,destFileName} = req.data;
       var response = {"onPremiseSrv":null,"cloudSrv":null};
       var sapClient ='';
+
+      if(cloudSrv){
+        var connection = await cds.connect.to('db');
+        var cloudResponse =  await connection.run(SELECT
+          .from`${connection.entities['DEALER_PORTAL.MASTER_SUBACCOUNT']}`);
+     
+          if( cloudResponse.length >= 0)
+          response.cloudSrv = "Loaded"
+        }
    
       if(onPremiseSrv){
       //   set connection to ZIDL_CUSTOMER_REG_SRV Destination
@@ -35,14 +44,7 @@ this.on('checkServiceAvailability',async(req)=>{
       if( onPremResponse.length >= 0)
         response.onPremiseSrv = "Loaded"
     }
-    if(cloudSrv){
-      var connection = await cds.connect.to('db');
-      var cloudResponse =  await connection.run(SELECT
-        .from`${connection.entities['DEALER_PORTAL.MASTER_SUBACCOUNT']}`);
    
-        if( cloudResponse.length >= 0)
-        response.cloudSrv = "Loaded"
-      }
    req.reply(response);  
   }
   catch(error)

@@ -19,5 +19,7 @@ service ideal_claim_creation_srv {
     }
 
     action CreateClaimReq(action : String, appType: String,crHeader : many ClaimHeader,crItems : many ClaimItems,crAttachments : many ClaimAttachments,crEvent : many ClaimEventLog, userDetails : User_Details) returns String;
+    action CreateClaimMDK(action : String, appType: String,crHeader : String, crItems : String,crAttachments : String,crEvent : String, userDetails : User_Details) returns many String;
+
 }
 

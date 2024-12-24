@@ -52,7 +52,7 @@ BEGIN
 
   IF (:IN_ACTION = 'APPROVE') 
   THEN          
-    LV_REMARK := 'Request is Approved';
+    LV_REMARK := 'RGA Request is Approved';
     LV_STATUS := 3;
     LV_EVENT_CODE := 3;
     LV_SUCCESS_ACTION := 'has been approved with SAP Document No ' || IN_SAP_NO;
@@ -71,7 +71,7 @@ BEGIN
 
   ELSEIF(:IN_ACTION = 'APPROVE_PENDING')
   THEN
-    LV_REMARK := 'Request is Approved';
+    LV_REMARK := 'RGA Request is in approval';
     LV_EVENT_CODE := 2;
     LV_STATUS := 2;
     LV_SUCCESS_ACTION := ' has been approved and sent to ' || :IN_APPROVER_ROLE || ' for approval';
@@ -90,7 +90,7 @@ BEGIN
 
   ELSEIF (:IN_ACTION = 'REJECT')
   THEN
-    LV_REMARK := 'Request is rejected ';
+    LV_REMARK := 'RGA Request is rejected ';
     LV_STATUS := 4;
     LV_EVENT_CODE := 4;
     LV_SUCCESS_ACTION := ' has been rejected';

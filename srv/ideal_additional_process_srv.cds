@@ -21,6 +21,9 @@ using {
 service ideal_additional_process_srv {
   entity MasterClientInfo                as projection on DEALER_PORTAL.MASTER_EMAIL_CONTACT_ID;
   entity MasterApprovalHierarchy         as projection on DEALER_PORTAL.MASTER_APPROVAL_HIERARCHY;
+    @restrict: [
+    { grant: '*', to:['ZIDEAL_SR_DM_ADMIN']},
+    { grant: '*', to:['ZIDEAL_SR_DM_APPROVER']}]
   entity MasterIdealUsers                as projection on DEALER_PORTAL.MASTER_IDEAL_USERS;
   entity RequestInfo                     as projection on DEALER_PORTAL.REQUEST_INFO;
   entity MasterIbanCountry               as projection on DEALER_PORTAL.MASTER_IBAN_COUNTRY;

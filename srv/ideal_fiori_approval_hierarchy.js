@@ -7,6 +7,8 @@ module.exports = cds.service.impl(function () {
     //New Approval hierarchy code without hierarchy id
 
     const {MASTER_ENTITY_AND_TYPE,MASTER_APPROVAL_HIERARCHY} = this.entities;
+    const {MasterEntityAndType} = this.entities;
+
 
     this.before('NEW',MASTER_APPROVAL_HIERARCHY,async req =>{
         try{
@@ -47,14 +49,20 @@ module.exports = cds.service.impl(function () {
             req.error(400, "This Entity Exists");
         }
         else{
-        var CountDraft = await SELECT `COUNT(ENTITY_CODE)` .from`IDEAL_FIORI_APPROVAL_HIERARCHY_MASTERENTITYANDTYPE_DRAFTS` .where`ID=${req.data.TO_ENTITY_HIERARCHY_ID}`;
+        // var no= "f2e55dc7-d2cd-4ace-81f3-d0162ef2b5d0";
+        var CountDraft = await SELECT `COUNT(ENTITY_CODE)`.from`IDEAL_FIORI_APPROVAL_HIERARCHY_MASTERENTITYANDTYPE_DRAFTS`.where`ID=${req.data.TO_ENTITY_HIERARCHY_ID}`;
+        // var CountDraft = await SELECT `COUNT(ENTITY_CODE)`.from`IDEAL_FIORI_APPROVAL_HIERARCHY_MASTERENTITYANDTYPE_DRAFTS`.where`ID=${no}`;
+
+        // var CountDraft2 = await SELECT `COUNT(ENTITY_CODE)`.from(MasterEntityAndType).where`ID=${req.data.TO_ENTITY_HIERARCHY_ID}`;
+        // var CountDraft3 = await SELECT `COUNT(ENTITY_CODE)`.from(MasterEntityAndType).where`ID=${req.data.TO_ENTITY_HIERARCHY_ID}`;
+
         var dEntityTypeData = await SELECT .from`IDEAL_FIORI_APPROVAL_HIERARCHY_MASTERENTITYANDTYPE_DRAFTS` .where`ID=${req.data.TO_ENTITY_HIERARCHY_ID}`;
         var LevelCount = await SELECT `SETTING` .from`DEALER_PORTAL_MASTER_IDEAL_SETTINGS` .where`CODE='MAX_APPR_LIMIT'`;
         var dMaxLevel = await SELECT `MAX(LEVEL)` .from`IDEAL_FIORI_APPROVAL_HIERARCHY_MASTERAPPROVALHIERARCHY_DRAFTS` .where`TO_ENTITY_HIERARCHY_ID=${req.data.TO_ENTITY_HIERARCHY_ID}`;
         if(dEntityTypeData[0].TYPE === '' || dEntityTypeData[0].ENTITY_CODE === '')
         {
             req.error(400, 'Please fill data into Entity Table');
-        }
+        }   
         else{
         if(CountDraft[0]["COUNT(ENTITY_CODE)"] > 0)
         {
@@ -93,13 +101,14 @@ module.exports = cds.service.impl(function () {
             else{
             req.data.ENTITY_CODE = dEntityTypeData[0].ENTITY_CODE;
             }
-            }
-            else{
-                req.error(400,'Insert data into Entity Table')
-            }
         }
-        }}}
+        else{
+                req.error(400,'Insert data into Entity Table')
+        }
     }
+    }
+}}
+}
     catch(error)
     {
         req.error(error);

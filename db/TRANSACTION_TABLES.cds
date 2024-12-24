@@ -693,6 +693,7 @@ entity SO_ITEMS {
 
 }
 
+
 entity PR_HEADER {
 
     key PR_NO             : Integer64;
@@ -935,13 +936,13 @@ entity PAYMENTS_HEADER {
         APPROVER_ROLE              : String(50);
         TO_STATUS                  : Association to one DEALER_PORTAL.MASTER_PAYMENT_STATUS
                                          on TO_STATUS.CODE = STATUS;
-        TO_ATTACHMENT              : Association to many PAYMENTS_ATTACHMENTS
+        TO_ATTACHMENT              : Association to many DEALER_PORTAL.PAYMENTS_ATTACHMENTS
                                          on TO_ATTACHMENT.POP_NO = POP_NO;
         TO_EVENT                   : Association to many PAYMENTS_EVENT_LOG
                                          on TO_EVENT.POP_NO = POP_NO;
 }
 
-entity PAYMENTS_ATTACHMENTS {
+entity  PAYMENTS_ATTACHMENTS {
     key POP_NO        : Integer64;
         ATTACH_CODE   : Integer;
     key FILE_ID       : Integer;

@@ -5,7 +5,7 @@ DEALER_PORTAL.MASTER_REQUEST_TYPE,DEALER_PORTAL.MASTER_REGFORM_FIELDS_CONFIG,VIE
 DEALER_PORTAL.MASTER_ATTACHMENT_TYPES,DEALER_PORTAL.MASTER_APPROVAL_TYPES,DEALER_PORTAL.MASTER_APPROVAL_HIERARCHY,DEALER_PORTAL.REGFORM_ATTACHMENTS_CMS,DEALER_PORTAL.MASTER_REGEX_POSTALCODE,DEALER_PORTAL.MASTER_IBAN_COUNTRY,DEALER_PORTAL.MASTER_IDEAL_ATTACHMENTS,DEALER_PORTAL.MASTER_IDEAL_SETTINGS,DEALER_PORTAL.MASTER_REQUEST_EVENTS,DEALER_PORTAL.MASTER_EMAIL_CONTACT_ID,DEALER_PORTAL.MASTER_USER_ENTITY_CODES
 } from '../db/MASTER_TABLES';
 
-service ideal_registration_form_srv {
+service ideal_registration_approval_srv {
 
     entity RequestInfo as projection on DEALER_PORTAL.REQUEST_INFO;
     entity MasterApprovalHierarchy as projection on DEALER_PORTAL.MASTER_APPROVAL_HIERARCHY;
@@ -25,12 +25,12 @@ service ideal_registration_form_srv {
     entity MasterRegion as projection on DEALER_PORTAL.MASTER_REGION;
     entity MasterCurrency as projection on DEALER_PORTAL.MASTER_CURRENCY;
     entity MasterEntityCode as projection on DEALER_PORTAL.MASTER_ENTITY_CODE;
-
-    @cds.odata.valuelist
     entity MasterStatus as projection on DEALER_PORTAL.MASTER_STATUS;
     entity MasterRequestType as projection on DEALER_PORTAL.MASTER_REQUEST_TYPE;
     entity MasterRegformFieldsConfig as projection on DEALER_PORTAL.MASTER_REGFORM_FIELDS_CONFIG;
     entity MasterApprovalTypes as projection on DEALER_PORTAL.MASTER_APPROVAL_TYPES;
+    entity IdealErrorLog as projection on DEALER_PORTAL.IDEAL_ERROR_LOG;
+
     
     entity MasterAttachmentTypes     as projection on DEALER_PORTAL.MASTER_ATTACHMENT_TYPES;
     entity MasterTelecode            as projection on DEALER_PORTAL.MASTER_TELECODE;
@@ -40,8 +40,8 @@ service ideal_registration_form_srv {
     entity MasterIdealSettings        as projection on DEALER_PORTAL.MASTER_IDEAL_SETTINGS;          
     entity MasterRequestEvents       as projection on DEALER_PORTAL.MASTER_REQUEST_EVENTS;
     entity MasterClientInfo          as projection on DEALER_PORTAL.MASTER_EMAIL_CONTACT_ID;
-
-    // entity MasterIdealUsers           as projection on DEALER_PORTAL.MASTER_IDEAL_USERS;
+     
+    entity MasterIdealUsers           as projection on DEALER_PORTAL.MASTER_IDEAL_USERS;
     entity MasterIdealUserEntity      as projection on DEALER_PORTAL.MASTER_USER_ENTITY_CODES;
     entity MasterUserRole             as projection on DEALER_PORTAL.MASTER_USER_ROLE;
     entity MasterRegformFieldsUpdated as projection on DEALER_PORTAL.MASTER_REGFORM_FIELDS_UPDATED;
@@ -78,8 +78,6 @@ service ideal_registration_form_srv {
     DOC_ID     : Integer64;
   }
 
-  
-
     function GetDraftData(requestNo : Integer, entityCode : String, creationType : Integer, userId : String, userRole : String)  returns many String;
     function GetSecurityPin(distributorName : String, distributorEmail : String, requesterId : String, userId : String, userRole : String)returns many String;
     function CheckSecurityPin(distributorEmail : String,securityPin:String, userId : String, userRole : String) returns securityPinResponse;
@@ -93,10 +91,11 @@ service ideal_registration_form_srv {
     action RegFormDataApproval(action : String,inputData : many RequestInfo,addressData : many RegformAddress,
     contactsData : many RegformContacts,bankData : many RegformBanks,eventsData : many RegEventsLog,
     userDetails : User_Details)returns many String;
-    //Action for DistEditRequest
-    action RegFormDistEdit(action:String,reqHeader: many RequestInfo,eventsData:many RegEventsLog,userDetails : User_Details) returns many String;  
 
     action RegFormDataApprovalMDK(action : String,inputData : String, addressData : String,
     contactsData : String,bankData : String,eventsData : String,
     userDetails : User_Details)returns many String;
+
+    //Action for DistEditRequest
+    action RegFormDistEdit(action:String,reqHeader: many RequestInfo,eventsData:many RegEventsLog,userDetails : User_Details) returns many String;  
 }

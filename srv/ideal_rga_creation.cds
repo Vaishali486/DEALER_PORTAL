@@ -18,6 +18,8 @@ service IDEAL_RGA_PROCESS {
         
   action rgaProcess( action : String, appType : String, rgHeader : many Rga_Header, rgItems :many Rga_Items, rgEvent : many Rga_Event_Logs  ) returns String;
 
+  action rgaProcessMdk( action : String, appType : String, rgHeader : String, rgItems :String, rgEvent : String) returns many String;
+
 
 
 

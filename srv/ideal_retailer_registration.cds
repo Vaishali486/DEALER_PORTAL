@@ -13,13 +13,14 @@ service ideal_retailer_registration {
     entity RetailerPDC as projection on ScSales.RETAILER_PDC;
     entity RetailerEvent as projection on ScSales.RETAILER_EVENT;
     entity TemplateAttachments as projection on ScSales.RETAILER_TEMPLATE_ATTACHMENTS;
-    entity RetailerSoHeader as projection on ScSales.RETAILER_SO_HEADER;
+    entity RetailerSoHeader as projection on ScSales.RETAILER_SO_HEADER; 
     entity RetailerSoItems as projection on ScSales.RETAILER_SO_ITEMS;
     entity RetailerDummy as projection on ScSales.RETAILER_DUMMY;
 
     entity CountryMaster as projection on DEALER_PORTAL_RETAILER_REGISTRATION.COUNTRY_MASTER;
     entity CityMaster as projection on DEALER_PORTAL_RETAILER_REGISTRATION.CITY_MASTER;
     entity RegionMaster as projection on DEALER_PORTAL.MASTER_REGION;
+    
     entity RetailerTypeMaster as projection on DEALER_PORTAL_RETAILER_REGISTRATION.RETAILER_TYPE_MASTER;
     entity AddressTypeMaster as projection on DEALER_PORTAL_RETAILER_REGISTRATION.ADDRESS_TYPE_MASTER;
     entity StatusMaster as projection on DEALER_PORTAL_RETAILER_REGISTRATION.STATUS_MASTER;

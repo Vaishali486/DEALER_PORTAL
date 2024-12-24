@@ -232,7 +232,7 @@ module.exports = {
             output.records.push(logdata);
             var client = await dbClass.createConnectionFromEnv();
             let dbConn = new dbClass(client);
-            const loadProc = await dbConn.loadProcedurePromisified(hdbext, null, 'EMAIL_LOG');
+            const loadProc = await dbConn.loadProcedurePromisified(hdbext, null, ' ');
             var sResponse = await dbConn.callProcedurePromisified(loadProc, ['CREATE', output.records]);
 
         } catch (error) {

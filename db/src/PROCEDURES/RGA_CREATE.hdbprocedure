@@ -43,7 +43,7 @@ BEGIN
     "DISTRIBUTOR_REASON", 1,
     :IN_APPROVER_LEVEL ,  :IN_APPROVER_ROLE,     
     "BU_CODE",            "SAP_RETURN_CODE",
-    "COMMENT",            :LV_CREATION_DATE  
+    "COMMENT",            :LV_CREATION_DATE   
     FROM :ST_RGA_HEADER;
     COMMIT;
 
@@ -57,7 +57,7 @@ BEGIN
   -- END IF;
     -- LV_RGA_ITEM_NO :=1;    
      
-    INSERT INTO "DEALER_PORTAL_RGA_ITEMS" (
+    INSERT INTO "DEALER_PORTAL_RGA_ITEMS" ( 
 
     "RGA_NO" ,             "RGA_ITEM_NO",   
     "ITEM_CODE",           "ITEM_DESCRIPTION",
@@ -106,7 +106,7 @@ INSERT INTO "DEALER_PORTAL_RGA_EVENT_LOGS" (
     COMMIT;
     -- OUT_SUCCESS := 'RGA Request No ' || :LV_RGA_NO;  
 
-       OUT_SUCCESS := 'RGA Request No ' || :LV_RGA_NO || ' has been created';
+       OUT_SUCCESS := 'RGA Request No ' || :LV_RGA_NO || ' has been created--';
     -- 'RGA Request Created Successfully :' || 
 
 END;

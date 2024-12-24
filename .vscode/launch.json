@@ -17,7 +17,29 @@
       ]
     },
     {
-      "name": "Run DEALER_PORTAL-1",
+      "name": "Run DEALER_PORTAL-11",
+      "request": "launch",
+      "type": "node",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "cds",
+      "args": [
+        "watch",
+        "--profile",
+        "hybrid"
+      ],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "envFile": "${workspaceFolder}/.env11",
+      "env": {
+        "NODE_ENV": "development",
+        "run.config": "{\"handlerId\":\"cap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/DEALER_PORTAL\\\",\\\"profileName\\\":\\\"development\\\"}\"}"
+      }
+    },
+    {
+      "name": "Run DEALER_PORTAL-13",
       "request": "launch",
       "type": "node",
       "cwd": "${workspaceFolder}",
@@ -31,7 +53,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "envFile": "${workspaceFolder}/.env1",
+      "envFile": "${workspaceFolder}/.env13",
       "env": {
         "NODE_ENV": "development",
         "run.config": "{\"handlerId\":\"cap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/DEALER_PORTAL\\\",\\\"profileName\\\":\\\"development\\\"}\"}"

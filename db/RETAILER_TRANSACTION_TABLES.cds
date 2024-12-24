@@ -125,10 +125,10 @@ entity RETAILER_EVENT {
                                   on TO_ADDRESS_TYPE.ADDRESS_TYPE = ADDRESS_TYPE;
             TO_COUNTRY       : Association to one COUNTRY_MASTER
                                on TO_COUNTRY.LAND1 = COUNTRY;
-        TO_REGION        : Association to one MASTER_REGION
-                               on  TO_REGION.LAND1 = COUNTRY
-                               and TO_REGION.BLAND = REGION;
-        TO_CITY          : Association to one DEALER_PORTAL_RETAILER_REGISTRATION.CITY_MASTER
+            TO_REGION        : Association to one MASTER_REGION
+                                   on  TO_REGION.LAND1 = COUNTRY
+                                   and TO_REGION.BLAND = REGION;
+            TO_CITY          : Association to one DEALER_PORTAL_RETAILER_REGISTRATION.CITY_MASTER
                                on TO_CITY.CITY_CODE = CITY;
 
     }
@@ -193,7 +193,7 @@ entity RETAILER_SO_ITEMS {
 }
 
 entity RETAILER_DUMMY{
-    DISTRIBUTOR_ID: String(10);
+    key DISTRIBUTOR_ID: String(10);
     MATERIAL_GROUP      : String(50);
     MATERIAL_GROUP_DESC : String(100);
     MATERIAL_CODE : String(40);
