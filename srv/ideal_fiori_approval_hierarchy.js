@@ -6,11 +6,11 @@ module.exports = cds.service.impl(function () {
 
     //New Approval hierarchy code without hierarchy id
 
-    const {MASTER_ENTITY_AND_TYPE,MASTER_APPROVAL_HIERARCHY} = this.entities;
-    const {MasterEntityAndType} = this.entities;
+    const {MasterEntityAndType,MasterApprovalHierarchy} = this.entities;
+    // const {MasterEntityAndType} = this.entities;
 
 
-    this.before('NEW',MASTER_APPROVAL_HIERARCHY,async req =>{
+    this.before('NEW',MasterApprovalHierarchy,async req =>{
         try{
         var vType;
         var vEntity;
@@ -115,7 +115,7 @@ module.exports = cds.service.impl(function () {
     }
     })
 
-    this.before('CREATE',MASTER_ENTITY_AND_TYPE,async req =>{
+    this.before('CREATE',MasterEntityAndType,async req =>{
         try{
         if(req.data.TO_MASTER_APPROVAL_HIERARCHY)
         {
@@ -131,7 +131,7 @@ module.exports = cds.service.impl(function () {
     }
     })
 
-    this.before('SAVE',MASTER_ENTITY_AND_TYPE,async req =>{
+    this.before('SAVE',MasterEntityAndType,async req =>{
     try{
         if(req.event !== 'CREATE')
         {

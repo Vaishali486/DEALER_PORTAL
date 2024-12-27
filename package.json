@@ -7,18 +7,19 @@
   "private": true,
   "dependencies": {
     "@cap-js-community/odata-v2-adapter": "^1.11.6",
-    "@cap-js/hana": "^1.5.2",
     "@sap-cloud-sdk/connectivity": "3.21.0",
     "@sap-cloud-sdk/core": "^1.54.2",
     "@sap-cloud-sdk/http-client": "^3.4.0",
     "@sap-cloud-sdk/openapi": "^3.13.0",
     "@sap-cloud-sdk/resilience": "^3.4.0",
-    "@sap/cds": "^8.6.0",
+    "@sap/cds": "^8",
     "@sap/cds-hana": "^2",
+    "@sap/hana-client": "^2.19.21",
+    "@cap-js/hana": "^1",
     "@sap/hdbext": "^7.7.6",
     "@sap/xssec": "^3",
     "core-util-is": "^1.0.3",
-    "express": "^4.21.2",
+    "express": "^4",
     "nodemailer": "^6.9.7",
     "passport": "^0.6.0",
     "sap-hdbext-promisfied": "2.202307.1"
@@ -162,5 +163,8 @@
       "native_hana_associations": false
     }
   },
-  "sapux": []
+  "sapux": [
+    "app/project1",
+    "app/project1"
+  ]
 }

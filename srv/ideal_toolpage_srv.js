@@ -1,5 +1,5 @@
 const cds = require("@sap/cds");
-const { SELECT } = require("@sap/cds/lib/ql/cds-ql");
+// const { SELECT } = require("@sap/cds/lib/ql/cds-ql");
 
 module.exports = cds.service.impl(function (srv){
     const {masterRoleCollection,applicationMaster, saApplicationMaster,resourceApplicationMaster} = this.entities;
@@ -71,12 +71,13 @@ module.exports = cds.service.impl(function (srv){
     this.before('NEW',applicationMaster.drafts, async (req) =>{
         try {
             // var a;
-            var qrySequence = await SELECT `MAX(SR_NO) as Sequence` .from(applicationMaster);
-            if(!qrySequence[0].Sequence){
-                req.data.SR_NO = '1';
+            // var qrySequence = await SELECT`MAX(SR_NO) as SR_NO` .from`DEALER_PORTAL_APPLICATION_MASTER`;
+            var qrySequence = await SELECT`MAX(SR_NO) as SR_NO` .from(applicationMaster);
+            if(!qrySequence[0].SR_NO){
+                req.data.SR_NO = 1;
             }
             else {
-                req.data.SR_NO = qrySequence[0].Sequence + 1;
+                req.data.SR_NO = qrySequence[0].SR_NO + 1;
             }  
         }
         catch(error) {
@@ -88,11 +89,11 @@ module.exports = cds.service.impl(function (srv){
     this.before('NEW',resourceApplicationMaster.drafts, async (req) =>{
         try {
             var qrySequence = await SELECT`MAX(SEQUENCE) as sequence` .from`DEALER_PORTAL_RESOURCE_APPLICATION_MASTER`;
-            if(!qrySequence[0].sequence){
+            if(!qrySequence[0].SEQUENCE){
                 req.data.SEQUENCE = 1;
             }
             else {
-                req.data.SEQUENCE = qrySequence[0].sequence + 1;
+                req.data.SEQUENCE = qrySequence[0].SEQUENCE + 1;
             }  
         } 
         catch (error) {
@@ -111,8 +112,8 @@ module.exports = cds.service.impl(function (srv){
         try {
             if(req.APPLICATION_ICON_URL){
                 // return req.APPLICATION_ICON = req.APPLICATION_ICON_URL;
-               var dataIcon = await UPDATE(applicationMaster.drafts) .set `APPLICATION_ICON = ${req.APPLICATION_ICON_URL}` .where `ID=${req.ID}`; 
-               return dataIcon;  
+               var dataIcon = await UPDATE(applicationMaster.drafts) .set({APPLICATION_ICON : req.APPLICATION_ICON_URL}) .where `ID=${req.ID}`; 
+            //    return dataIcon;  
             }
         } 
         catch (error) {
@@ -124,8 +125,8 @@ module.exports = cds.service.impl(function (srv){
         try {
             if(req.APPLICATION_ICON_URL){
                 // return req.APPLICATION_ICON = req.APPLICATION_ICON_URL;
-               var dataIcon = await UPDATE(saApplicationMaster.drafts) .set `SA_APPLICATION_ICON = ${req.SA_APPLICATION_ICON_URL}` .where `ID=${req.ID}`; 
-               return dataIcon;  
+               var dataIcon = await UPDATE(saApplicationMaster.drafts) .set({SA_APPLICATION_ICON :req.SA_APPLICATION_ICON_URL}) .where `ID=${req.ID}`; 
+            //    return dataIcon;  
             }
         } 
         catch (error) {
